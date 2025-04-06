@@ -3,17 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import EditSide from './components/EditSide'
-import ResumeSide from './components/ResumeSide'
+import Edit from './components/Edit'
+import Preview from './components/Preview'
+
+// Import Bootstrap's css
+import './scss/styles.scss';
+
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap'
+
+
 
 function App() {
 
   return (
     <>
-      <div>
-        <EditSide />
-        <ResumeSide />
-      </div>
+      <Edit />
+      <Preview />
     </>
   )
 }
