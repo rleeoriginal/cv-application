@@ -16,10 +16,38 @@ import * as bootstrap from 'bootstrap'
 
 function App() {
 
+  // general vars
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState ("")
+  const [number, setNumber] = useState ("")
+
+  // education vars
+  const [school, setSchool] = useState("")
+  const [study, setStudy] = useState("")
+  const [date, setDate] = useState("")
+
+  // experience vars
+  const [company, setCompany] = useState("")
+  const [position, setPosition] = useState ("")
+  const [description, setDescription] = useState("")
+
   return (
     <>
-      <Edit />
-      <Preview />
+      <Edit 
+        setName={setName}
+        setEmail={setEmail}
+        setNumber={setNumber}
+
+        setSchool={setSchool}
+        setStudy={setStudy}
+        setDate={setDate}
+
+        setCompany={setCompany}
+        setPosition={setPosition}
+        setDescription={setDescription}
+      />
+      <Preview test={name}/>
+
     </>
   )
 }

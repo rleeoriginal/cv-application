@@ -1,10 +1,5 @@
-import { useState } from "react";
 
-function Education() {
-    const [school, setSchool] = useState("")
-    const [study, setStudy] = useState("")
-    const [date, setDate] = useState("")
-
+function Education(props) {
 
     return <>
         <div>Education Information</div>
@@ -13,22 +8,19 @@ function Education() {
             <input 
                 type="text" 
                 id="school_name"
-                value={school}
-                onChange={(e) => setSchool(e.target.value)}
+                onChange={(e) => props.setSchool(e.target.value)}
             />
             <label htmlFor="study">Title of study: </label>
             <input 
                 type="text" 
                 id="study"
-                value={study}
-                onChange={(e) => setStudy(e.target.value)}
+                onChange={(e) => props.setStudy(e.target.value)}
             />
             <label htmlFor="date_study">Date of study: </label>
             <input 
                 type="date" 
                 id="date_study"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => props.setDate(e.target.value)}
             />
         </form>
     

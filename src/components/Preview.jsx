@@ -1,5 +1,5 @@
 
-function Preview() {
+function Preview(props) {
 
     return (
         <>

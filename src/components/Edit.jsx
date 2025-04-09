@@ -4,15 +4,28 @@ import Education from "./edit/Education"
 import Experience from "./edit/Experience"
 
 
-function Edit() {
+
+function Edit(props) {
     return (
         <>
             <div className="edit">
                 <Clear />
-                <General />
-                <Education />
-                <Experience />
+                <General
+                    setName={props.setName}
+                    setEmail={props.setEmail}
+                    setNumber={props.setNumber}
+                />
+                <Education 
+                    setSchool={props.setSchool}
+                    setStudy={props.setStudy}
+                    setDate={props.setDate}
+                />
+                <Experience 
+                    setCompany={props.setCompany}
+                    setPosition={props.setPosition}
+                    setDescription={props.setDescription}
                 
+                />
             </div>
         </>
     )
