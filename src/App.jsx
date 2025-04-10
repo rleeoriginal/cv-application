@@ -21,10 +21,14 @@ function App() {
   const [email, setEmail] = useState ("")
   const [number, setNumber] = useState ("")
 
-  // education vars
+  // education var
+  const [education, setEducation] = useState([])
+
   const [school, setSchool] = useState("")
   const [study, setStudy] = useState("")
   const [date, setDate] = useState("")
+
+
 
   // experience vars
   const [company, setCompany] = useState("")
@@ -38,9 +42,7 @@ function App() {
         setEmail={setEmail}
         setNumber={setNumber}
 
-        setSchool={setSchool}
-        setStudy={setStudy}
-        setDate={setDate}
+        setEducation={setEducation}
 
         setCompany={setCompany}
         setPosition={setPosition}
