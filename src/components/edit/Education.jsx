@@ -11,6 +11,71 @@ function Education(props) {
         education_div.classList.toggle("py-0")
         education_list.classList.toggle("d-none")
         education_fields.classList.toggle("d-none")
+
+        
+    }
+
+    function saveInfo() {
+        // create education object and send to App component
+        const newEducation = {
+            school,
+            degree,
+            startDate,
+            endDate,
+            location
+        }
+        var updatedEducation;
+        if (currentSchool < 0) {
+            // append new education info
+            updatedEducation = [...props.educationInfo, newEducation]
+            
+        } else {
+            // update current education info
+            updatedEducation = [...props.educationInfo]
+            updatedEducation[currentSchool] = newEducation
+        }
+        props.setEducationInfo(updatedEducation)
+        exitInfo()
+    }
+
+    function editInfo(school_index) {
+        toggleInputDisplay()
+        const schoolInfo = props.educationInfo[school_index]
+        // set current school state
+        // reset to -1 when press any 3 buttons
+        setCurrentSchool(school_index)
+        // fill in input fields
+        // note: can do all this in one line? 
+        setSchool(schoolInfo.school)
+        setDegree(schoolInfo.degree)
+        setStartDate(schoolInfo.startDate)
+        setEndDate(schoolInfo.endDate)
+        setLocation(schoolInfo.location)
+ 
+
+        // need to prevent save button from creating different object
+    }
+
+    function exitInfo() {
+        toggleInputDisplay()
+        clearFields()
+        setCurrentSchool(-1)
+    }
+
+    function deleteInfo() {
+        const updatedEducation = props.educationInfo.filter((_, index) => index !== currentSchool)
+        props.setEducationInfo(updatedEducation)
+        exitInfo()
+    }
+
+
+
+    function clearFields() {
+        setSchool("")
+        setDegree("")
+        setStartDate("")
+        setEndDate("")
+        setLocation("")
     }
 
     const [school, setSchool] = useState("")
@@ -19,30 +84,14 @@ function Education(props) {
     const [endDate, setEndDate] = useState("")
     const [location, setLocation] = useState("")
 
-    function saveInfo() {
-        toggleInputDisplay()
-        // create education object and send to App component
-        const education = {
-            school: school,
-            degree,
-            startDate,
-            endDate,
-            location
-        }
-        
-        const currentList = props.educationInfo
-        console.log(currentList)
-        currentList.push(education)
-        props.setEducationInfo(currentList)
-
-    }
+    const[currentSchool, setCurrentSchool] = useState(-1)
 
 
 
     
     return <>
         <div class="card m-3 shadow">
-            <div class="card-header cursor-pointer d-flex justify-content-evenly align-items-center" data-bs-toggle="collapse" data-bs-target="#education">
+            <div class="card-header cursor-pointer d-flex justify-content-center align-items-center gap-3" data-bs-toggle="collapse" data-bs-target="#education">
                 Education Information 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
                     <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
@@ -52,9 +101,11 @@ function Education(props) {
                 <ul class="list-group list-group-flush" id="education_list">
                     {props.educationInfo.map((edu, index) => {
                         return (
-                            <button class="list-group-item" key={index}>
-                                {edu.school}
-                            </button>
+                            <li class="list-group-item d-flex justify-content-center" key={index}>
+                                <button type="button" className="btn" onClick={() => editInfo(index)}>
+                                    {edu.school}
+                                </button>
+                            </li>
                         )
                     })}
                     <button class="list-group-item" type="button" onClick={toggleInputDisplay}>Add Education</button>
@@ -77,9 +128,7 @@ function Education(props) {
                                 id="start_date"
                                 value={startDate}
                                 onChange={(e) => setStartDate(e.target.value)}
-                            />
-                            {startDate}
-                            
+                            />  
                         </div>
                         <div class="mb-3">
                             <label for="end_date" class="form-label">End Date</label>
@@ -96,8 +145,10 @@ function Education(props) {
                             <input type="text" class="form-control" id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
                         </div>
                         <div class="d-flex justify-content-evenly">
-                            <button className="btn btn-outline-danger btn-sm" type="button"> Delete </button>
-                            <button className="btn btn-outline-secondary btn-sm" type="button" onClick={toggleInputDisplay}> Cancel </button>
+                            <button className="btn btn-outline-danger btn-sm" type="button" onClick={deleteInfo}> Delete </button>
+                            <button className="btn btn-outline-secondary btn-sm" type="button" onClick={exitInfo}> 
+                                Cancel 
+                            </button>
                             <button className="btn btn-outline-primary btn-sm" type="button" onClick={saveInfo}> Save </button>
                         </div>
                     </form> 
@@ -109,3 +160,5 @@ function Education(props) {
 
 export default Education
 
+// clear info
+// var -> using var in if statement
