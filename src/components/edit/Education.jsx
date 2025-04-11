@@ -13,16 +13,32 @@ function Education(props) {
         education_fields.classList.toggle("d-none")
     }
 
-    function saveInfo() {
-        toggleInputDisplay()
-
-    }
-
     const [school, setSchool] = useState("")
     const [degree, setDegree] = useState("")
     const [startDate, setStartDate] = useState("")
     const [endDate, setEndDate] = useState("")
     const [location, setLocation] = useState("")
+
+    function saveInfo() {
+        toggleInputDisplay()
+        // create education object and send to App component
+        const education = {
+            school: school,
+            degree,
+            startDate,
+            endDate,
+            location
+        }
+        
+        const currentList = props.educationInfo
+        console.log(currentList)
+        currentList.push(education)
+        props.setEducationInfo(currentList)
+
+    }
+
+
+
     
     return <>
         <div class="card m-3 shadow">
@@ -34,19 +50,24 @@ function Education(props) {
             </div>
             <div class="card-body py-0" id="education">
                 <ul class="list-group list-group-flush" id="education_list">
-                    <button class="list-group-item">University of Southern California</button>
-                    <button class="list-group-item">Harvard University</button>
+                    {props.educationInfo.map((edu, index) => {
+                        return (
+                            <button class="list-group-item" key={index}>
+                                {edu.school}
+                            </button>
+                        )
+                    })}
                     <button class="list-group-item" type="button" onClick={toggleInputDisplay}>Add Education</button>
                 </ul>
                 <div class="d-none" id="education_fields">
                     <form action="" method="post">
                         <div class="mb-3">
                             <label for="school" class="form-label">School</label>
-                            <input type="text" class="form-control" id="school" onChange={(e) => props.setSchool(e.target.value)}  />
+                            <input type="text" class="form-control" id="school" value={school} onChange={(e) => setSchool(e.target.value)}  />
                         </div>
                         <div class="mb-3">
                             <label for="degree" class="form-label">Degree</label>
-                            <input type="text" class="form-control" id="degree" onChange={(e) => props.setDegree(e.target.value)} />
+                            <input type="text" class="form-control" id="degree" value={degree} onChange={(e) => setDegree(e.target.value)} />
                         </div>
                         <div class="mb-3">
                             <label for="start_date" class="form-label">Start Date</label>
@@ -54,8 +75,11 @@ function Education(props) {
                                 type="date" 
                                 class="form-control"
                                 id="start_date"
-                                onChange={(e) => props.setStartDate(e.target.value)}
+                                value={startDate}
+                                onChange={(e) => setStartDate(e.target.value)}
                             />
+                            {startDate}
+                            
                         </div>
                         <div class="mb-3">
                             <label for="end_date" class="form-label">End Date</label>
@@ -63,12 +87,13 @@ function Education(props) {
                                 type="date" 
                                 class="form-control"
                                 id="end_date"
-                                onChange={(e) => props.setEndDate(e.target.value)}
+                                value={endDate}
+                                onChange={(e) => setEndDate(e.target.value)}
                             />
                         </div>
                         <div class="mb-3">
                             <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" onChange={(e) => props.setLocation(e.target.value)} />
+                            <input type="text" class="form-control" id="location" value={location} onChange={(e) => setLocation(e.target.value)} />
                         </div>
                         <div class="d-flex justify-content-evenly">
                             <button className="btn btn-outline-danger btn-sm" type="button"> Delete </button>

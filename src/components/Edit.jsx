@@ -16,7 +16,8 @@ function Edit(props) {
                     setNumber={props.setNumber}
                 />
                 <Education 
-                    setEducation={props.setEducation}
+                    educationInfo={props.educationInfo}
+                    setEducationInfo={props.setEducationInfo}
                 />
                 <Experience 
                     setCompany={props.setCompany}

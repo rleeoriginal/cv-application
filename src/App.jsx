@@ -22,7 +22,22 @@ function App() {
   const [number, setNumber] = useState ("")
 
   // education var
-  const [education, setEducation] = useState([])
+  const example1 = {
+    school: "University of Southern California",
+    degree: "Bachelors of Science",
+    startDate: "2020-04-11",
+    endDate: "2025-04-11",
+    location: "Los Angeles, CA"
+  }
+  const example2 = {
+    school: "University of Loyola Marymount",
+    degree: "Bachelors of Art",
+    startDate: "2019-03-12",
+    endDate: "2023-05-25",
+    location: "Los Angeles, CA"
+  }
+
+  const [educationInfo, setEducationInfo] = useState([example1, example2])
 
   const [school, setSchool] = useState("")
   const [study, setStudy] = useState("")
@@ -42,7 +57,8 @@ function App() {
         setEmail={setEmail}
         setNumber={setNumber}
 
-        setEducation={setEducation}
+        educationInfo={educationInfo}
+        setEducationInfo={setEducationInfo}
 
         setCompany={setCompany}
         setPosition={setPosition}
