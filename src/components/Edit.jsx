@@ -9,7 +9,10 @@ function Edit(props) {
     return (
         <>
             <div className="d-flex flex-column">
-                <Clear />
+                <Clear 
+                    clearInfo={props.clearInfo}
+                
+                />
                 <General
                     setName={props.setName}
                     setEmail={props.setEmail}
