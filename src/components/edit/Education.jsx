@@ -40,20 +40,19 @@ function Education(props) {
 
     function editInfo(school_index) {
         toggleInputDisplay()
-        const schoolInfo = props.educationInfo[school_index]
+        const chosenEducation = props.educationInfo[school_index]
         // set current school state
         // reset to -1 when press any 3 buttons
         setCurrentSchool(school_index)
         // fill in input fields
         // note: can do all this in one line? 
-        setSchool(schoolInfo.school)
-        setDegree(schoolInfo.degree)
-        setStartDate(schoolInfo.startDate)
-        setEndDate(schoolInfo.endDate)
-        setLocation(schoolInfo.location)
+        setSchool(chosenEducation.school)
+        setDegree(chosenEducation.degree)
+        setStartDate(chosenEducation.startDate)
+        setEndDate(chosenEducation.endDate)
+        setLocation(chosenEducation.location)
  
 
-        // need to prevent save button from creating different object
     }
 
     function exitInfo() {
@@ -86,9 +85,6 @@ function Education(props) {
 
     const[currentSchool, setCurrentSchool] = useState(-1)
 
-
-
-    
     return <>
         <div class="card m-3 shadow">
             <div class="card-header cursor-pointer d-flex justify-content-center align-items-center gap-3" data-bs-toggle="collapse" data-bs-target="#education">
@@ -108,7 +104,11 @@ function Education(props) {
                             </li>
                         )
                     })}
-                    <button class="list-group-item" type="button" onClick={toggleInputDisplay}>Add Education</button>
+                    <li className="list-group-item d-flex justify-content-center">
+                        <button type="button" className="btn" onClick={toggleInputDisplay}>
+                            Add Education
+                        </button>
+                    </li>
                 </ul>
                 <div class="d-none" id="education_fields">
                     <form action="" method="post">
