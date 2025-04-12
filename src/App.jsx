@@ -37,35 +37,51 @@ function App() {
     location: "Los Angeles, CA"
   }
 
+  const example3 = {
+    company: "Meta",
+    position: "Software Developer",
+    startDate: "2020-01-13",
+    endDate: "2024-03-23",
+    location: "Cupertino, CA",
+    description: "Designed and prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android"
+  }
+
+  const example4 = {
+    company: "Apple",
+    position: "UX Designer",
+    startDate: "2019-02-23",
+    endDate: "2025-01-13",
+    location: "Seattle, WA",
+    description: "Prototyped user interface patterns for various clients in various industries, ranging from self-service apps within the telecommunications-sector to mobile games for IOS and Android"
+  }
+
   const [educationInfo, setEducationInfo] = useState([example1, example2])
-
-  const [school, setSchool] = useState("")
-  const [study, setStudy] = useState("")
-  const [date, setDate] = useState("")
+  const [experienceInfo, setExperienceInfo] = useState([example3, example4])
 
 
 
-  // experience vars
-  const [company, setCompany] = useState("")
-  const [position, setPosition] = useState ("")
-  const [description, setDescription] = useState("")
+
+
+
 
   return (
-    <>
-      <Edit 
-        setName={setName}
-        setEmail={setEmail}
-        setNumber={setNumber}
+    <>    
+          <Edit 
+            setName={setName}
+            setEmail={setEmail}
+            setNumber={setNumber}
 
-        educationInfo={educationInfo}
-        setEducationInfo={setEducationInfo}
+            educationInfo={educationInfo}
+            setEducationInfo={setEducationInfo}
 
-        setCompany={setCompany}
-        setPosition={setPosition}
-        setDescription={setDescription}
-      />
-      <Preview test={name}/>
-
+            experienceInfo={experienceInfo}
+            setExperienceInfo={setExperienceInfo}
+          />
+          
+          <Preview test={name}/>
+          
+        
+      
     </>
   )
 }

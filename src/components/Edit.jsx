@@ -8,7 +8,7 @@ import Experience from "./edit/Experience"
 function Edit(props) {
     return (
         <>
-            <div className="edit">
+            <div className="d-flex flex-column">
                 <Clear />
                 <General
                     setName={props.setName}
@@ -20,10 +20,8 @@ function Edit(props) {
                     setEducationInfo={props.setEducationInfo}
                 />
                 <Experience 
-                    setCompany={props.setCompany}
-                    setPosition={props.setPosition}
-                    setDescription={props.setDescription}
-                
+                    experienceInfo={props.experienceInfo}
+                    setExperienceInfo={props.setExperienceInfo}       
                 />
             </div>
         </>
