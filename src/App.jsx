@@ -12,9 +12,15 @@ import './scss/styles.scss';
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 
-
-
 function App() {
+
+  function clearInfo() {
+    setName("")
+    setEmail("")
+    setNumber("")
+    setEducationInfo([])
+    setExperienceInfo([])
+  }
 
   // general vars
   const [name, setName] = useState("")
@@ -76,9 +82,11 @@ function App() {
 
             experienceInfo={experienceInfo}
             setExperienceInfo={setExperienceInfo}
+
+            clearInfo={clearInfo}
           />
           
-          <Preview test={name}/>
+          <Preview />
           
         
       
