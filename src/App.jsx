@@ -71,22 +71,35 @@ function App() {
 
 
   return (
-    <>    
-          <Edit 
-            setName={setName}
-            setEmail={setEmail}
-            setNumber={setNumber}
+    <> 
+      <div className="container h-100">
+        <div className="row h-100">
+          <div className="col-4 bg-danger">
+            <Edit 
+                setName={setName}
+                setEmail={setEmail}
+                setNumber={setNumber}
 
-            educationInfo={educationInfo}
-            setEducationInfo={setEducationInfo}
+                educationInfo={educationInfo}
+                setEducationInfo={setEducationInfo}
 
-            experienceInfo={experienceInfo}
-            setExperienceInfo={setExperienceInfo}
+                experienceInfo={experienceInfo}
+                setExperienceInfo={setExperienceInfo}
 
-            clearInfo={clearInfo}
-          />
-          
-          <Preview />
+                clearInfo={clearInfo}
+              />
+
+          </div>
+          <div className="col-8 bg-primary d-flex flex-column">
+            <Preview />
+          </div>
+
+        </div>
+
+            
+
+      </div>
+
           
         
       
