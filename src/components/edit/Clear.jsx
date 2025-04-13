@@ -3,7 +3,6 @@ function Clear(props) {
     return (
         <>
             <div class="card m-3 shadow">
-
                 <div class="card-body">
                     <div class="d-grid">
                         <button type="button" class="btn btn-outline-danger d-flex justify-content-center align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#clearConfirmation">
@@ -13,7 +12,6 @@ function Clear(props) {
                                 </svg>
                                 Clear Information
                         </button>
-
                         <div className="modal fade" id="clearConfirmation">
                             <div className="modal-dialog modal-dialog-centered">
                                 <div className="modal-content">
@@ -31,8 +29,6 @@ function Clear(props) {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>     

@@ -1,14 +1,9 @@
 /* notes
-- 1:3 to 2:3 edit to preview
 - min width for preview = top CV info div
-- ^ make sure scrollable horizontally
 */
 
 #root {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-
+    height: 130%;
 }
 
 .cursor-pointer {
