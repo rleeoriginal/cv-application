@@ -1,9 +1,8 @@
-/* notes
-- min width for preview = top CV info div
-*/
+@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Special+Gothic+Condensed+One&display=swap');
 
 #root {
     height: 130%;
+    font-family: "National Park", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .cursor-pointer {

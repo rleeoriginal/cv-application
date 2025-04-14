@@ -11,12 +11,12 @@ function Edit(props) {
             <div className="d-flex flex-column">
                 <Clear 
                     clearInfo={props.clearInfo}
-                
                 />
                 <General
                     setName={props.setName}
                     setEmail={props.setEmail}
                     setNumber={props.setNumber}
+                    setLocation={props.setLocation}
                 />
                 <Education 
                     educationInfo={props.educationInfo}

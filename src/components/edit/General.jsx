@@ -24,6 +24,10 @@ function General(props) {
                         <label for="phone_number" class="form-label">Phone Number</label>
                         <input type="tel" class="form-control" id="phone_number" placeholder="123-456-7890" onChange={(e) => props.setNumber(e.target.value)} />
                     </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="San Francisco, CA" onChange={(e) => props.setLocation(e.target.value)} />
+                    </div>
                 </form> 
             </div>
         </div>     
