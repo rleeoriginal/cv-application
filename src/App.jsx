@@ -35,7 +35,7 @@ function App() {
     <> 
       <div className="container h-100">
         <div className="row h-100">
-          <div className="col-4">
+          <div className="col-4 bg-secondary">
             <Edit 
                 setName={setName}
                 setEmail={setEmail}
@@ -50,7 +50,6 @@ function App() {
 
                 clearInfo={clearInfo}
               />
-
           </div>
           <div className="col-8 d-flex flex-column">
             <Preview

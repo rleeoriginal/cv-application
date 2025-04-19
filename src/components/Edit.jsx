@@ -8,7 +8,7 @@ import Experience from "./edit/Experience"
 function Edit(props) {
     return (
         <>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column" >
                 <Clear 
                     clearInfo={props.clearInfo}
                 />
